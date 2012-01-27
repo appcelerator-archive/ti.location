@@ -53,7 +53,7 @@
 	if ([self _hasListeners:@"error"])
 	{
         NSMutableDictionary *tiEvent = [NSMutableDictionary dictionary];
-        [tiEvent setObject:error forKey:@"error"];
+        [tiEvent setObject:[error localizedDescription] forKey:@"error"];
 		[self fireEvent:@"error" withObject:tiEvent];
 	}
 }
@@ -71,7 +71,7 @@
         NSMutableDictionary *tiEvent = [NSMutableDictionary dictionary];
 	    [tiEvent setObject:reg forKey:@"coord"];
 	    //[tiEvent setObject:region forKey:@"region"];
-        [tiEvent setObject:error forKey:@"error"];
+        [tiEvent setObject:[error localizedDescription] forKey:@"error"];
 		[self fireEvent:@"regionMonitorFail" withObject:tiEvent];
 	}
 }
